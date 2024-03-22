@@ -10,6 +10,11 @@ function App() {
 
   const handleChange = (e) => {
     const hexValue = '#' + ('00000' + parseInt(e.target.value, 10).toString(16)).slice(-6);
+    // parsing target value to decimal number and then again to string of hexadecimal 
+    // Adding 00000 to hex string(which can be 1 digit) as hex code should be of 6 digits always
+    // slicing the string from back of 6 digits and adding "#" at last to make it hexcode  
+
+
     setColorCode(hexValue);
   };
 
@@ -45,6 +50,7 @@ function App() {
             min={0}
             max={16777215} 
             value={parseInt(colorCode.substring(1), 16)}
+            // parsing the range value into hexadecimal number by removing first letter which would be "#"
             onChange={handleChange}
           /> <br /> Color : {colorCode} <br />
           <Checkbox 

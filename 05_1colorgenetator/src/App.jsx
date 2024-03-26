@@ -25,8 +25,7 @@ function App() {
   return (
     <>
       <div 
-      className='w-full h-screen flex justify-center rounded-3xl text-white' 
-      
+      className='w-full h-screen flex justify-center rounded-3xl text-white'  
       ref={colorRef}>
         <div className='w-full max-w-md h-72 shadow-md bg-blue-950 rounded-xl mx-auto px-4 py-3 my-8'>
           <h1 className='text-white text-center my-3'>Color Generator</h1>

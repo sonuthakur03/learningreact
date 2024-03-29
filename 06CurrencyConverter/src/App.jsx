@@ -1,16 +1,18 @@
 import { useState } from 'react'
 import {Inputbox} from './components'
 import useCurrencyInfo from './hooks/useCurrencyinfo'
+import country_list from "./javascript/country-list"
+
 
 function App() {
   const [amount, setAmount] = useState(0)
-  const [from, setFrom] = useState("usd")
-  const [to, setTo] = useState("inr")
+  const [from, setFrom] = useState("USD")
+  const [to, setTo] = useState("INR")
   const [convertedAmount, setConvertedAmount] = useState(0)
 
-  const currencyInfo = useCurrencyInfo(from)
-
-  const options = Object.keys(currencyInfo)
+  const currencyInfo = useCurrencyInfo(from, to)
+console.log(currencyInfo);
+  const countryList = Object.keys(country_list)
 
   const swap = () => {
     setFrom(to)
@@ -42,7 +44,7 @@ function App() {
                         <Inputbox
                             label="From"
                             amount={amount}
-                            currencyOptions={options}
+                            currencyOptions={countryList}
                             onCurrencyChange={(currency) => setAmount(amount)}
                             selectCurrency={from}
                             onAmountChange={(amount) => setAmount(amount)}
@@ -61,7 +63,7 @@ function App() {
                         <Inputbox
                             label="To"
                             amount={convertedAmount}
-                            currencyOptions={options}
+                            currencyOptions={countryList}
                             onCurrencyChange={(currency) => setTo(currency)}
                             selectCurrency={to}
                             amountDisable

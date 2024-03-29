@@ -6,14 +6,11 @@ function useCurrencyInfo(currency, currencyTo){
     useEffect(() => {
         fetch(`https://v6.exchangerate-api.com/v6/${apiKey}/latest/${currency}`).then((res) => res.json()) 
         .then((val) => {
-            console.log(val)
-            setData(val.conversion_rates[currencyTo.value])
+
+            setData(val.conversion_rates[currencyTo])
         })
         
     }, [currency])
-    console.log(data);
-    console.log(currencyTo);
-    console.log(currency);
     return data
 }
 

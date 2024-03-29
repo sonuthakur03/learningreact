@@ -7,12 +7,13 @@ import country_list from "./javascript/country-list"
 function App() {
   const [amount, setAmount] = useState(0)
   const [from, setFrom] = useState("USD")
-  const [to, setTo] = useState("INR")
+  const [to, setTo] = useState("NPR")
   const [convertedAmount, setConvertedAmount] = useState(0)
 
   const currencyInfo = useCurrencyInfo(from, to)
   const countryList = Object.keys(country_list)
 
+  console.log(currencyInfo);
   const swap = () => {
     setFrom(to)
     setTo(from)
@@ -36,7 +37,7 @@ function App() {
                 <form
                     onSubmit={(e) => {
                         e.preventDefault();
-                        convert()
+                         convert();
                     }}
                 >
                     <div className="w-full mb-1">
@@ -68,7 +69,10 @@ function App() {
                             amountDisable
                         />
                     </div>
-                    <button type="submit" className="w-full bg-blue-600 text-white px-4 py-3 rounded-lg">
+                    <button 
+                        type="submit" 
+                        className="w-full bg-blue-600 text-white px-4 py-3 rounded-lg"
+                    >
                         Convert {from.toUpperCase()} to {to.toUpperCase()} 
                     </button>
                 </form>

@@ -1,5 +1,6 @@
 import React, { useId } from 'react';
 
+// component for inputbox
 function InputBox({
     label,
     amount,
@@ -11,7 +12,7 @@ function InputBox({
     currencyDisable = false,
     className = "",
 }) {
-    const amountInputId = useId();
+    const amountInputId = useId(); // taking unique id for label and input
 
     return (
         <div className={`bg-white p-3 rounded-lg text-sm flex ${className}`}>
@@ -26,7 +27,7 @@ function InputBox({
                     placeholder="Amount"
                     disabled={amountDisable}
                     value={amount}
-                    onChange={(e) => onAmountChange && onAmountChange(Number(e.target.value))}
+                    onChange={(e) => onAmountChange && onAmountChange(Number(e.target.value))} // checking if onAmountChange is provided or not and if provided passing the value of input for amount
                 />
             </div>
             <div className="w-1/2 flex flex-wrap justify-end text-right">
@@ -35,13 +36,13 @@ function InputBox({
                     className="rounded-lg px-1 py-1 bg-gray-100 cursor-pointer outline-none"
                     value={selectCurrency}
                     onChange={(e) => {
-                        onCurrencyChange && onCurrencyChange(e.target.value)
-                        console.log(e.target.value);
+                        onCurrencyChange && onCurrencyChange(e.target.value) // on change passing the currency name 
                     }}
                     disabled={currencyDisable}
                 >
+                    {/* {mapping the currencyOptions to show it im drop down list} */}
                     {currencyOptions.map((currency) => (
-                        <option key={currency} value={currency}>
+                        <option key={currency} value={currency}> 
                             {currency}
                         </option>
                         

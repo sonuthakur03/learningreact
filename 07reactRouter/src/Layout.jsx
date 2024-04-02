@@ -9,7 +9,7 @@ function Layout() {
     <>
     <Header />
     <Outlet /> 
-    {/* outlet marks as element which will be changed */}
+    {/* outlet marks as element which will be changed children from main.jsx route will be changed here */}
     <Footer />
     </>
   )

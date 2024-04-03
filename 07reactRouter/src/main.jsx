@@ -34,6 +34,7 @@ import Github from './components/Github/Github.jsx'
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<Layout />} >
+      {/* these are childrens  */}
       <Route path='' element={<Home/>} />
       <Route path='about' element={<About/>} />
       <Route path='contact-us' element={<Contact/>} />

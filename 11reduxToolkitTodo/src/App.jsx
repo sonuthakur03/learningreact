@@ -1,13 +1,13 @@
-import { useState } from 'react'
-import './App.css'
+import AddTodo from './components/AddTodo'
+import Todos from './components/Todos'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <>
-      <h1>Hellow</h1> 
-    </>
+    <div className='flex flex-col justify-center items-center w-full'>
+      <AddTodo />
+      <Todos />
+    </div>
   )
 }
 
